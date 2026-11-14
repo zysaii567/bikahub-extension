@@ -1,4 +1,4 @@
-name: Build Bikahub APK
+name: Build Extensions APK
 
 on:
   push:
@@ -27,9 +27,10 @@ jobs:
           chmod +x ./gradlew
           ./gradlew spotlessApply
           ./gradlew :src:zh:bikahub:assembleDebug
+          ./gradlew :src:zh:manwa:assembleDebug
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: bikahub-apk
-          path: src/zh/bikahub/build/outputs/apk/debug/*.apk
+          name: extensions-apk
+          path: src/zh/**/build/outputs/apk/debug/*.apk
