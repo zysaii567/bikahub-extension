@@ -156,7 +156,7 @@ abstract class Manwa3 : KeiSource() {
     override suspend fun getPageList(chapter: SChapter): List<Page> {
         val chapterId = chapter.url.substringAfterLast("/").substringBefore("?").substringBefore("_")
         val apiUrl = "$baseUrl/api/comic/image/$chapterId?page=1&page_size=200&image_source=${encodeSource()}"
-        val response = client.get(apiUrl, Fetch.JSON)
+        val response = client.get(apiUrl, Fetch.XHR)
         val dto = response.parseAs<ImageResponseDto>()
 
         val images = dto.data?.images?.map { it.url }?.filter { it.isNotEmpty() } ?: emptyList()
@@ -191,10 +191,10 @@ abstract class Manwa3 : KeiSource() {
         companion object {
             private val categoryPairs = arrayOf(
                 "全部" to "/cate",
-                "热血" to "/cate/hotblooded",
-                "玄幻" to "/cate/xuanhuan",
-                "恋爱" to "/cate/romance",
-                "冒险" to "/cate/adventure",
+                "后宫" to "/cate/harem",
+                "系统" to "/cate/system",
+                "韩漫" to "/cate/manhwa",
+                "台版" to "/cate/taiwanver",
                 "古风" to "/cate/historical",
                 "都市" to "/cate/urban",
                 "穿越" to "/cate/transmigration",
