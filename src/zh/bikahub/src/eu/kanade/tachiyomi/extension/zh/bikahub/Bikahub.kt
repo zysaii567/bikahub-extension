@@ -30,8 +30,7 @@ abstract class Bikahub : KeiSource() {
         set("Referer", "$baseUrl/")
     }
 
-    override fun OkHttpClient.Builder.configureClient(): OkHttpClient.Builder =
-        addInterceptor(AesImageInterceptor())
+    override fun OkHttpClient.Builder.configureClient(): OkHttpClient.Builder = addInterceptor(AesImageInterceptor())
 
     // ============================= 热门 / 最新 =============================
 
@@ -227,10 +226,11 @@ abstract class Bikahub : KeiSource() {
         CategoryFilter(),
     )
 
-    private class CategoryFilter : Filter.Select<String>(
-        "分类 / 标签",
-        categoryPairs.map { it.first }.toTypedArray(),
-    ) {
+    private class CategoryFilter :
+        Filter.Select<String>(
+            "分类 / 标签",
+            categoryPairs.map { it.first }.toTypedArray(),
+        ) {
         fun selectedValue(): String = categoryPairs[state].second
 
         companion object {
@@ -250,3 +250,4 @@ abstract class Bikahub : KeiSource() {
         }
     }
 }
+

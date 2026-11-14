@@ -25,6 +25,7 @@ jobs:
       - name: Build APK
         run: |
           chmod +x ./gradlew
+          ./gradlew spotlessApply
           ./gradlew :src:zh:bikahub:assembleRelease
 
       - name: Upload APK Artifact
