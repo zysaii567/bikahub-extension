@@ -15,9 +15,6 @@ keiyoushi {
         lang = "zh"
         baseUrl {
             custom("https://bikahub.net")
-            mirrors(
-                "https://bikahub.net"
-            )
         }
     }
 
