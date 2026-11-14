@@ -25,10 +25,9 @@ abstract class Bikahub : KeiSource() {
 
     override val supportsLatest = true
 
-    override fun Headers.Builder.configureHeaders() {
+    override fun Headers.Builder.configureHeaders(): Headers.Builder =
         set("User-Agent", "Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36")
-        set("Referer", "$baseUrl/")
-    }
+            .set("Referer", "$baseUrl/")
 
     override fun OkHttpClient.Builder.configureClient(): OkHttpClient.Builder = addInterceptor(AesImageInterceptor())
 
