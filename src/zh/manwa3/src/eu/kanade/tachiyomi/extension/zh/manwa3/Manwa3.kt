@@ -38,7 +38,7 @@ abstract class Manwa3 : KeiSource() {
             .set("Referer", "$baseUrl/")
 
     override fun OkHttpClient.Builder.configureClient(): OkHttpClient.Builder =
-        ignoreAllSSLErrors()
+        ignoreAllSSLErrors().addInterceptor(Manwa3ImageInterceptor())
 
     private fun OkHttpClient.Builder.ignoreAllSSLErrors(): OkHttpClient.Builder {
         val naiveTrustManager = @SuppressLint("CustomX509TrustManager")
