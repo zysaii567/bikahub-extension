@@ -34,7 +34,8 @@ rootProject.name = "Keiyoushi"
 // loadAllIndividualExtensions()
 loadIndividualExtension("zh", "bikahub")
 loadIndividualExtension("zh", "manwa")
-loadIndividualExtension("zh", "manwa3")
+// loadIndividualExtension("zh", "manwa3")
+loadIndividualExtension("zh", "sansiyule")
 
 /**
  * ===================================== COMMON CONFIGURATION ======================================
